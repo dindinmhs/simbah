@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://kh217g7tab2s"]
+
+[ext_resource type="Script" uid="uid://jp6icnrekg8k" path="res://mix_trigger.gd" id="1_tw5k7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ubo2i"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_tw5k7"]
+
+[node name="MixTrigger" type="Area3D"]
+script = ExtResource("1_tw5k7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ubo2i")
+
+[node name="TriggerCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.95380247)
+shape = SubResource("BoxShape3D_ubo2i")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_tw5k7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b8iuxxrocxkbr"]
+
+[node name="Gameover" type="Node2D"]
+
+[node name="GameoverMenu" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="GameoverMenu"]
+offset_right = 1151.0
+offset_bottom = 651.0
+
+[node name="Button" type="Button" parent="GameoverMenu"]
+offset_left = 503.0
+offset_top = 202.0
+offset_right = 591.0
+offset_bottom = 233.0
+text = "Play Again"

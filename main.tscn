@@ -1,0 +1,119 @@
+[gd_scene load_steps=17 format=3 uid="uid://bajusjggv06k3"]
+
+[ext_resource type="Texture2D" uid="uid://db4gcykq65yab" path="res://assets/store/floor.png" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://kh217g7tab2s" path="res://mix_trigger.tscn" id="1_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://dga8a3fwgyi5x" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://cvra6fc8tu8ol" path="res://main.gd" id="1_lquwl"]
+[ext_resource type="PackedScene" uid="uid://cpvyd1v5t0kpb" path="res://mix_menu.tscn" id="3_h2yge"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2yge"]
+albedo_texture = ExtResource("1_0xm2m")
+roughness = 0.0
+uv1_scale = Vector3(0.45, 0.45, 0.45)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_7dm0k"]
+material = SubResource("StandardMaterial3D_h2yge")
+size = Vector3(20, 0.5, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ig7tw"]
+size = Vector3(15.184719, 0.5, 18.15403)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1bvp3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lquwl"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7mycd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_272bh"]
+size = Vector3(11.024078, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5vw27"]
+size = Vector3(1, 1, 2.2387695)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lquwl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7mycd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kek77"]
+
+[node name="Main" type="Node3D" node_paths=PackedStringArray("stop_area")]
+script = ExtResource("1_lquwl")
+stop_area = NodePath("StopArea")
+
+[node name="Floor" type="StaticBody3D" parent="."]
+collision_mask = 255
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(0.004615329, 0, 0.7507161, 0, 1, 0, -0.7146938, 0, 0.004847956, -0.035391808, -0.13069844, 3.8563538)
+mesh = SubResource("BoxMesh_7dm0k")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.063489914, 0, 5.598274)
+shape = SubResource("BoxShape3D_ig7tw")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(14.683425, 0, 0, 0, 0.41821164, 0, 0, 0, 3.6902876, -0.26116848, -0.0355196, 12.874636)
+mesh = SubResource("BoxMesh_1bvp3")
+
+[node name="Table" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(11.079216, 0, 0, 0, 1, 0, 0, 0, 1, -1.9398956, 0.6703514, 1.0202498)
+mesh = SubResource("BoxMesh_lquwl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor/Table"]
+transform = Transform3D(0.09567625, 0, 0, 0, 1, 0, 0, 0, 2.2275093, 0.45164832, -0.0057570934, -1.6096444)
+mesh = SubResource("BoxMesh_7mycd")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9590302, 0.6500037, 1.0223019)
+shape = SubResource("BoxShape3D_272bh")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.034037, 0.66422653, -0.5866699)
+shape = SubResource("BoxShape3D_5vw27")
+
+[node name="Player" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 2
+collision_mask = 15
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-3.5118177e-08, -0.5954259, 0.80341023, -2.6026893e-08, 0.80341023, 0.5954259, -1, 0, -4.371139e-08, 8, 8.339769, -1)
+
+[node name="MixMenu" parent="." instance=ExtResource("3_h2yge")]
+visible = false
+
+[node name="MixTrigger" parent="." instance=ExtResource("1_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.67618394, 0.8417287, -2.769397)
+collision_layer = 8
+collision_mask = 3
+
+[node name="StopArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.19982219)
+collision_layer = 16
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StopArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4570153, 0.65081215, 1.8576026)
+shape = SubResource("BoxShape3D_lquwl")
+
+[node name="Spawner" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.40520763, 0, 12.620158)
+
+[node name="SpawnTimer" type="Timer" parent="."]
+
+[node name="GiveArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.445579, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GiveArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6525692, 0)
+shape = SubResource("BoxShape3D_7mycd")
+
+[node name="DestroyArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2524405, 0, 12.677073)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DestroyArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.66613317, 0)
+shape = SubResource("BoxShape3D_kek77")
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

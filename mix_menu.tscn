@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpvyd1v5t0kpb"]
+
+[ext_resource type="Texture2D" uid="uid://d6je7vib0wgq" path="res://assets/store/mixer_background.png" id="1_5syhe"]
+[ext_resource type="Script" uid="uid://b4iaq2v6tep40" path="res://mix_ui.gd" id="1_mk00n"]
+
+[node name="MixMenu" type="CanvasLayer"]
+
+[node name="MixUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 624.0
+offset_top = 155.0
+offset_right = 624.0
+offset_bottom = 155.0
+script = ExtResource("1_mk00n")
+
+[node name="TextureRect" type="TextureRect" parent="MixUI"]
+layout_mode = 0
+offset_left = -41.0
+offset_top = -80.0
+offset_right = 224.0
+offset_bottom = 392.0
+texture = ExtResource("1_5syhe")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="MixUI"]
+layout_mode = 0
+offset_left = -387.0
+offset_top = -86.0
+offset_right = -81.0
+offset_bottom = 386.0
+texture = ExtResource("1_5syhe")
+expand_mode = 1
+
+[node name="ListContainer" type="GridContainer" parent="MixUI"]
+layout_mode = 0
+offset_right = 174.0
+offset_bottom = 33.0
+columns = 5
+
+[node name="CraftSlots" type="HBoxContainer" parent="MixUI"]
+layout_mode = 0
+offset_left = -323.0
+offset_top = 9.0
+offset_right = -158.0
+offset_bottom = 49.0
+
+[node name="Slot1" type="TextureRect" parent="MixUI/CraftSlots"]
+layout_mode = 2
+expand_mode = 2
+
+[node name="Slot2" type="TextureRect" parent="MixUI/CraftSlots"]
+layout_mode = 2
+expand_mode = 2
+
+[node name="Slot3" type="TextureRect" parent="MixUI/CraftSlots"]
+layout_mode = 2
+expand_mode = 2
+
+[node name="MixButton" type="Button" parent="MixUI"]
+layout_mode = 0
+offset_left = -275.0
+offset_top = 289.0
+offset_right = -201.0
+offset_bottom = 310.0
+text = "Racik"
+
+[connection signal="pressed" from="MixUI/MixButton" to="MixUI" method="_on_mix_button_pressed"]
