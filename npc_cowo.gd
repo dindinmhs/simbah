@@ -6,8 +6,21 @@ var is_stopped = false
 var is_talking = false
 @onready var anim = $AnimationPlayer   
 
+var need_jamu : String = ""
+var dialog_text : String = ""
+
 func _ready():
 	start_turn_after_delay(1.5)
+	
+func load_request_from_global():
+	var request = GlobalData.get_random_npc_request()
+
+	need_jamu = request["need"]
+	dialog_text = request["dialog"]
+
+	print("NPC NEED:", need_jamu)
+	print("NPC DIALOG:", dialog_text)
+
 
 func start_turn_after_delay(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout
@@ -64,8 +77,17 @@ func _on_stop_area_body_entered(body: Node) -> void:
 	if body == self:
 		is_stopped = true
 		is_talking = true
+
+		load_request_from_global()
+
+		var ui_dialog = get_tree().root.get_node("Main/UI/Control/Dialog")
+		var ui_dialogtext = get_tree().root.get_node("Main/UI/Control/Dialog/dialogText")
+		ui_dialog.visible = true
+		ui_dialogtext.text = dialog_text
+
 		anim.play("npc_cowo_Talking_2")
 		await anim.animation_finished
+
 		is_talking = false
 		print("NPC STOP!")
 

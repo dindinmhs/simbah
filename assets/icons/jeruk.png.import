@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfcqmkv0o443y"
-path="res://.godot/imported/jahe.png-900755fed443bb78ae7f171bc09eefa9.ctex"
+uid="uid://c1wqc0qnyq3gj"
+path="res://.godot/imported/jeruk.png-cebf559885343c8774a77c337d5e5a28.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/jahe.png"
-dest_files=["res://.godot/imported/jahe.png-900755fed443bb78ae7f171bc09eefa9.ctex"]
+source_file="res://assets/icons/jeruk.png"
+dest_files=["res://.godot/imported/jeruk.png-cebf559885343c8774a77c337d5e5a28.ctex"]
 
 [params]
 

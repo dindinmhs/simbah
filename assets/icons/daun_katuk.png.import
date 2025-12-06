@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfcqmkv0o443y"
-path="res://.godot/imported/jahe.png-900755fed443bb78ae7f171bc09eefa9.ctex"
+uid="uid://dmkudgcnsj02c"
+path="res://.godot/imported/daun_katuk.png-618491658050f40759dc4b6dbde2473b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/jahe.png"
-dest_files=["res://.godot/imported/jahe.png-900755fed443bb78ae7f171bc09eefa9.ctex"]
+source_file="res://assets/icons/daun_katuk.png"
+dest_files=["res://.godot/imported/daun_katuk.png-618491658050f40759dc4b6dbde2473b.ctex"]
 
 [params]
 

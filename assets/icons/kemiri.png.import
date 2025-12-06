@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfcqmkv0o443y"
-path="res://.godot/imported/jahe.png-900755fed443bb78ae7f171bc09eefa9.ctex"
+uid="uid://drxvfry84dcq8"
+path="res://.godot/imported/kemiri.png-6b771e800c3f0a1b91651f3ca8b6fe1c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/jahe.png"
-dest_files=["res://.godot/imported/jahe.png-900755fed443bb78ae7f171bc09eefa9.ctex"]
+source_file="res://assets/icons/kemiri.png"
+dest_files=["res://.godot/imported/kemiri.png-6b771e800c3f0a1b91651f3ca8b6fe1c.ctex"]
 
 [params]
 

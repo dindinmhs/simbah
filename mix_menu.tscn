@@ -33,17 +33,19 @@ texture = ExtResource("1_5syhe")
 expand_mode = 1
 
 [node name="ListContainer" type="GridContainer" parent="MixUI"]
-layout_mode = 0
-offset_right = 174.0
-offset_bottom = 33.0
-columns = 5
+layout_mode = 1
+offset_right = 182.0
+offset_bottom = 340.0
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 11
+columns = 4
 
 [node name="CraftSlots" type="HBoxContainer" parent="MixUI"]
 layout_mode = 0
-offset_left = -323.0
-offset_top = 9.0
-offset_right = -158.0
-offset_bottom = 49.0
+offset_left = -324.0
+offset_top = 213.0
+offset_right = -159.0
+offset_bottom = 253.0
 
 [node name="Slot1" type="TextureRect" parent="MixUI/CraftSlots"]
 layout_mode = 2
@@ -57,6 +59,10 @@ expand_mode = 2
 layout_mode = 2
 expand_mode = 2
 
+[node name="Slot4" type="TextureRect" parent="MixUI/CraftSlots"]
+layout_mode = 2
+expand_mode = 2
+
 [node name="MixButton" type="Button" parent="MixUI"]
 layout_mode = 0
 offset_left = -275.0
@@ -64,5 +70,19 @@ offset_top = 289.0
 offset_right = -201.0
 offset_bottom = 310.0
 text = "Racik"
+
+[node name="iconJamu" type="TextureRect" parent="MixUI"]
+layout_mode = 0
+offset_left = -271.0
+offset_top = 73.0
+offset_right = -207.0
+offset_bottom = 137.0
+
+[node name="namaJamu" type="Label" parent="MixUI"]
+layout_mode = 0
+offset_left = -256.0
+offset_top = 36.0
+offset_right = -216.0
+offset_bottom = 59.0
 
 [connection signal="pressed" from="MixUI/MixButton" to="MixUI" method="_on_mix_button_pressed"]

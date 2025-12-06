@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfcqmkv0o443y"
-path="res://.godot/imported/jahe.png-900755fed443bb78ae7f171bc09eefa9.ctex"
+uid="uid://cvqwfje7sb7j7"
+path="res://.godot/imported/dialog_box.png-b7e7d1acf8efaac5b042df4c1fe52a61.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/jahe.png"
-dest_files=["res://.godot/imported/jahe.png-900755fed443bb78ae7f171bc09eefa9.ctex"]
+source_file="res://assets/gameplay/dialog_box.png"
+dest_files=["res://.godot/imported/dialog_box.png-b7e7d1acf8efaac5b042df4c1fe52a61.ctex"]
 
 [params]
 

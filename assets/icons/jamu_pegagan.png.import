@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfcqmkv0o443y"
-path="res://.godot/imported/jahe.png-900755fed443bb78ae7f171bc09eefa9.ctex"
+uid="uid://cs6plfktxxc6k"
+path="res://.godot/imported/jamu_pegagan.png-16056587d30bd1772fd5fa2ff8c1a7fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/jahe.png"
-dest_files=["res://.godot/imported/jahe.png-900755fed443bb78ae7f171bc09eefa9.ctex"]
+source_file="res://assets/icons/jamu_pegagan.png"
+dest_files=["res://.godot/imported/jamu_pegagan.png-16056587d30bd1772fd5fa2ff8c1a7fb.ctex"]
 
 [params]
 

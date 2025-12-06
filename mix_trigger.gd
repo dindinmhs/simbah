@@ -2,17 +2,24 @@ extends Area3D
 
 var player_in_area = false
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass 
 
 func _open_ui():
-	var ui = get_parent().get_node("MixMenu")
-	ui.visible = true
+	var parent = get_parent()
+	var mix_menu = parent.get_node("MixMenu")
+	var gameplay_ui = parent.get_node("UI")
+
+	mix_menu.visible = true
+	gameplay_ui.visible = false
 
 func _close_ui():
-	var ui = get_parent().get_node("MixMenu")
-	ui.visible = false
+	var parent = get_parent()
+	var mix_menu = parent.get_node("MixMenu")
+	var gameplay_ui = parent.get_node("UI")
+
+	mix_menu.visible = false
+	gameplay_ui.visible = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -21,6 +28,7 @@ func _process(delta: float) -> void:
 		_open_ui()
 	elif player_in_area and Input.is_action_just_pressed("close") and ui.visible == true:
 		_close_ui()
+	
 
 func _on_body_entered(body: Node3D) -> void:
 	player_in_area = true

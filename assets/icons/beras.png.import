@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfcqmkv0o443y"
-path="res://.godot/imported/jahe.png-900755fed443bb78ae7f171bc09eefa9.ctex"
+uid="uid://dxx26kv0i51sv"
+path="res://.godot/imported/beras.png-3f1df99be4ee92dc596706efe3966b74.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/jahe.png"
-dest_files=["res://.godot/imported/jahe.png-900755fed443bb78ae7f171bc09eefa9.ctex"]
+source_file="res://assets/icons/beras.png"
+dest_files=["res://.godot/imported/beras.png-3f1df99be4ee92dc596706efe3966b74.ctex"]
 
 [params]
 

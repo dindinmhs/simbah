@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpejoof47thdc"]
+
+[ext_resource type="Script" uid="uid://b4e7l5vcpwotq" path="res://give_area.gd" id="1_e8bd4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bwk37"]
+
+[node name="GiveArea" type="Area3D"]
+script = ExtResource("1_e8bd4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6525692, 0)
+shape = SubResource("BoxShape3D_bwk37")

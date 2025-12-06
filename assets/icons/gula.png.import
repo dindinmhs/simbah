@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfcqmkv0o443y"
-path="res://.godot/imported/jahe.png-900755fed443bb78ae7f171bc09eefa9.ctex"
+uid="uid://byn2x2w5o1drv"
+path="res://.godot/imported/gula.png-34d89f9b63cdfeda6e649ee684001362.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/jahe.png"
-dest_files=["res://.godot/imported/jahe.png-900755fed443bb78ae7f171bc09eefa9.ctex"]
+source_file="res://assets/icons/gula.png"
+dest_files=["res://.godot/imported/gula.png-34d89f9b63cdfeda6e649ee684001362.ctex"]
 
 [params]
 
