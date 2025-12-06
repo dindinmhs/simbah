@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bajusjggv06k3"]
+[gd_scene load_steps=22 format=3 uid="uid://bajusjggv06k3"]
 
 [ext_resource type="Texture2D" uid="uid://db4gcykq65yab" path="res://assets/store/floor.png" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://kh217g7tab2s" path="res://mix_trigger.tscn" id="1_1bvp3"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://cvra6fc8tu8ol" path="res://main.gd" id="1_lquwl"]
 [ext_resource type="PackedScene" uid="uid://cpvyd1v5t0kpb" path="res://mix_menu.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://njgvdirew7g1" path="res://ui.tscn" id="6_7mycd"]
+[ext_resource type="Script" uid="uid://due1badt4jys4" path="res://destroy_area.gd" id="7_efxa6"]
 [ext_resource type="PackedScene" uid="uid://doeydepwafro6" path="res://trash.tscn" id="7_kek77"]
 [ext_resource type="PackedScene" uid="uid://bb03ogo8kem88" path="res://book.tscn" id="8_4c57u"]
 [ext_resource type="PackedScene" uid="uid://b3vtw1breih81" path="res://book_ui.tscn" id="9_efxa6"]
@@ -112,6 +113,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.40520763, 0, 12.620158)
 
 [node name="DestroyArea" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2524405, 0, 12.677073)
+collision_layer = 256
+collision_mask = 4
+script = ExtResource("7_efxa6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DestroyArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.66613317, 0)
@@ -126,6 +130,7 @@ collision_mask = 3
 
 [node name="book_trigger" parent="." instance=ExtResource("8_4c57u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9423027, 0.5712178, -2.7348752)
+collision_layer = 64
 collision_mask = 3
 
 [node name="bookUI" parent="." instance=ExtResource("9_efxa6")]
@@ -134,3 +139,4 @@ visible = false
 [connection signal="body_entered" from="GiveArea" to="GiveArea" method="_on_body_entered"]
 [connection signal="body_exited" from="GiveArea" to="GiveArea" method="_on_body_exited"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="body_entered" from="DestroyArea" to="DestroyArea" method="_on_body_entered"]

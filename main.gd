@@ -1,7 +1,10 @@
+# main.gd
 extends Node3D
 
 var inventory : Array = []
 var coins : int = 0  
+var request_timer : Timer = null
+var is_request_active : bool = false
 
 @onready var gameplay_ui = $"UI/Control"
 @onready var result_icon = $"UI/Control/JamuActive/Icon"
@@ -14,6 +17,7 @@ var coins : int = 0
 @export var npc_cowo: PackedScene = load("res://npc_cowo.tscn")
 @export var spawn_delay := 10 
 @export var npc_speed := 2.5
+@export var request_timeout := 60.0  # 1 menit dalam detik
 @export var stop_area: Area3D
 
 var current_npc : CharacterBody3D = null  
@@ -25,6 +29,16 @@ func _ready():
 	
 	btn_accept.pressed.connect(accept_request)
 	btn_reject.pressed.connect(reject_request)
+	
+	# Buat timer untuk request timeout
+	request_timer = Timer.new()
+	add_child(request_timer)
+	request_timer.timeout.connect(_on_request_timeout)
+
+func _process(delta):
+	if is_request_active and request_timer:
+		var time_left = request_timer.time_left
+		print("⏱️ Waktu tersisa: %.1f detik" % time_left)
 
 func add_to_inventory(recipe:Dictionary):
 	inventory.append(recipe)
@@ -35,14 +49,29 @@ func add_to_inventory(recipe:Dictionary):
 func accept_request():
 	print("✔ Permintaan diterima")
 	dialog_box.visible = false
+	is_request_active = true
+	
+	# Start timer 1 menit
+	request_timer.start(request_timeout)
+	print("⏱️ Timer dimulai: %.0f detik" % request_timeout)
 
 func reject_request():
 	print("❌ Permintaan ditolak")
 	remove_coin(5)
 	dialog_box.visible = false
+	is_request_active = false
 	
-	if current_npc != null:
-		current_npc.queue_free()
+	if current_npc:
+		current_npc.reject_and_leave()
+	
+	current_npc = null
+
+func _on_request_timeout():
+	print("⏱️ WAKTU HABIS! NPC pergi tanpa jamu")
+	is_request_active = false
+	
+	if current_npc:
+		current_npc.continue_walking()
 		current_npc = null
 
 func add_coin(amount: int):
@@ -65,6 +94,11 @@ func clear_inventory():
 	inventory = []
 	result_icon.texture = null
 	result_label.text = ""
+
+func stop_request_timer():
+	if request_timer and request_timer.time_left > 0:
+		request_timer.stop()
+		is_request_active = false
 
 func spawn_npc():
 	var npc = npc_cowo.instantiate()

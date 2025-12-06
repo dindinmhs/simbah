@@ -1,3 +1,4 @@
+# give_area.gd
 extends Area3D
 
 var player_in_area = false
@@ -9,12 +10,15 @@ func _process(delta):
 func check_give():
 	var main = get_tree().root.get_node("Main")
 	
-	# Cek apakah ada inventory
+	# Cek apakah ada request yang aktif
+	if not main.is_request_active:
+		print("❌ Tidak ada permintaan yang aktif!")
+		return
+	
 	if main.inventory.size() == 0:
 		print("❌ Kamu belum membuat jamu!")
 		return
 	
-	# Cek apakah ada NPC yang sedang menunggu
 	if main.current_npc == null:
 		print("❌ Tidak ada NPC yang meminta jamu!")
 		return
@@ -23,22 +27,20 @@ func check_give():
 	var jamu_name = given["name"]
 	var npc = main.current_npc
 	
-	if npc.has_variable("need_jamu"):
-		var npc_need = npc.need_jamu
-		
-		if jamu_name == npc_need:
-			print("✔ BENAR! Jamu diberikan:", jamu_name)
-			main.add_coin(10)
-		else:
-			print("❌ SALAH! NPC meminta:", npc_need, " tapi kamu beri:", jamu_name)
-			main.remove_coin(5)
-		
-		# Hapus NPC setelah diberi jamu
-		npc.queue_free()
-		main.current_npc = null
-		
-		# Bersihkan inventory player
-		main.clear_inventory()
+	# Stop timer karena jamu sudah diberikan
+	main.stop_request_timer()
+	
+	if jamu_name == npc.need_jamu:
+		print("✔ BENAR! Jamu diberikan:", jamu_name)
+		main.add_coin(10)
+	else:
+		print("❌ SALAH! NPC meminta:", npc.need_jamu, " tapi kamu beri:", jamu_name)
+		main.remove_coin(5)
+	
+	# NPC keluar dengan belok kanan 2x
+	npc.continue_walking()
+	main.current_npc = null
+	main.clear_inventory()
 
 func _on_body_entered(body):
 	if body.name == "Player": 

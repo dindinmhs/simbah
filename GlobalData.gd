@@ -37,7 +37,7 @@ var recipes = [
 		]
 	},
 	{
-		"ingredients": ["Jahe", "Madu", "Jeruk Nipis"],
+		"ingredients": ["Beras", "Kencur", "Gula"],
 		"name": "Jamu Beras Kencur",
 		"icon": preload("res://assets/icons/jamu_beras_kencur.png"),
 		"description": "Jamu untuk stamina dan tenaga.",

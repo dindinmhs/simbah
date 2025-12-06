@@ -1,9 +1,12 @@
+# npc.gd
 extends CharacterBody3D
+
 var SPEED = 0
 var state = "straight"   
 var turn_direction = Vector3.ZERO
 var is_stopped = false
 var is_talking = false
+
 @onready var anim = $AnimationPlayer   
 
 var need_jamu : String = ""
@@ -14,19 +17,49 @@ func _ready():
 	
 func load_request_from_global():
 	var request = GlobalData.get_random_npc_request()
-
 	need_jamu = request["need"]
 	dialog_text = request["dialog"]
-
 	print("NPC NEED:", need_jamu)
 	print("NPC DIALOG:", dialog_text)
-
 
 func start_turn_after_delay(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout
 	state = "turn"
 	turn_direction = Vector3(0, 0, 1)
 	print("NPC mulai belok kanan")
+
+func reject_and_leave():
+	"""Dipanggil ketika request ditolak - NPC langsung belok kanan 2x"""
+	is_stopped = false
+	is_talking = false
+	var ui_dialog = get_tree().root.get_node("Main/UI/Control/Dialog")
+	ui_dialog.visible = false
+	
+	print("🚶 NPC ditolak, mulai belok kanan pertama")
+	state = "turn"
+	turn_direction = Vector3(1, 0, 0)
+	
+	# Belok kanan kedua setelah beberapa detik
+	await get_tree().create_timer(3.0).timeout
+	print("🚶 NPC belok kanan kedua (keluar)")
+	state = "turn"
+	turn_direction = Vector3(0, 0, -1)
+
+func continue_walking():
+	"""Dipanggil ketika waktu habis atau setelah memberi jamu - NPC belok kanan 2x"""
+	is_stopped = false
+	is_talking = false
+	var ui_dialog = get_tree().root.get_node("Main/UI/Control/Dialog")
+	ui_dialog.visible = false
+	
+	print("🚶 NPC mulai jalan, belok kanan pertama")
+	state = "turn"
+	turn_direction = Vector3(1, 0, 0)
+	
+	# Belok kanan kedua setelah beberapa detik
+	await get_tree().create_timer(3.0).timeout
+	print("🚶 NPC belok kanan kedua (keluar)")
+	turn_direction = Vector3(0, 0, -1)
 
 func _physics_process(delta: float) -> void:
 	if is_stopped:
@@ -77,17 +110,15 @@ func _on_stop_area_body_entered(body: Node) -> void:
 	if body == self:
 		is_stopped = true
 		is_talking = true
-
 		load_request_from_global()
-
+		
 		var ui_dialog = get_tree().root.get_node("Main/UI/Control/Dialog")
 		var ui_dialogtext = get_tree().root.get_node("Main/UI/Control/Dialog/dialogText")
 		ui_dialog.visible = true
 		ui_dialogtext.text = dialog_text
-
+		
 		anim.play("npc_cowo_Talking_2")
 		await anim.animation_finished
-
 		is_talking = false
 		print("NPC STOP!")
 
