@@ -1,17 +1,35 @@
-[gd_scene load_steps=7 format=3 uid="uid://b3vtw1breih81"]
+[gd_scene load_steps=7 format=3 uid="uid://dtjrlq0egn0is"]
 
-[ext_resource type="Script" uid="uid://duiu80e8mhtkf" path="res://book_ui.gd" id="1_2tper"]
-[ext_resource type="Texture2D" uid="uid://bmnn0ailgasra" path="res://assets/gameplay/close.png" id="1_p3lif"]
-[ext_resource type="Texture2D" uid="uid://cs5kq7ug178up" path="res://assets/gameplay/book.png" id="2_5hkex"]
-[ext_resource type="Texture2D" uid="uid://m03a2ki8o2gb" path="res://assets/icons/jamu/jamu_kunyit_asam.png" id="3_2tper"]
-[ext_resource type="Texture2D" uid="uid://ky1yhp4dpw56" path="res://assets/icons/jamu_kunyit_asam.png" id="3_5hkex"]
-[ext_resource type="Texture2D" uid="uid://ne4ydipdcpvs" path="res://assets/gameplay/next.png" id="4_717ya"]
+[ext_resource type="Script" uid="uid://bhvkkunh3eoas" path="res://collection.gd" id="1_47miu"]
+[ext_resource type="Texture2D" uid="uid://cc0yk5n8vk5t3" path="res://assets/gameplay/bg.png" id="1_jywwe"]
+[ext_resource type="Texture2D" uid="uid://cs5kq7ug178up" path="res://assets/gameplay/book.png" id="3_0j71w"]
+[ext_resource type="Texture2D" uid="uid://ky1yhp4dpw56" path="res://assets/icons/jamu_kunyit_asam.png" id="4_bp7wq"]
+[ext_resource type="Texture2D" uid="uid://m03a2ki8o2gb" path="res://assets/icons/jamu/jamu_kunyit_asam.png" id="5_x3dl5"]
+[ext_resource type="Texture2D" uid="uid://ne4ydipdcpvs" path="res://assets/gameplay/next.png" id="6_846a7"]
 
-[node name="bookUI" type="CanvasLayer"]
-script = ExtResource("1_2tper")
+[node name="Collection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_47miu")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_jywwe")
+expand_mode = 1
 
 [node name="Control" type="Control" parent="."]
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -26,7 +44,7 @@ anchor_bottom = 1.0
 offset_right = -9.0
 offset_bottom = -10.0
 
-[node name="Close" type="TextureButton" parent="Control"]
+[node name="Back" type="TextureButton" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.017
@@ -37,9 +55,10 @@ offset_left = 0.29699898
 offset_top = -0.1079998
 offset_right = 0.1210022
 offset_bottom = 0.19599152
-texture_normal = ExtResource("1_p3lif")
+texture_normal = ExtResource("6_846a7")
 ignore_texture_size = true
 stretch_mode = 0
+flip_h = true
 
 [node name="BookBackground" type="TextureRect" parent="Control"]
 layout_mode = 1
@@ -54,7 +73,7 @@ offset_right = -0.33361816
 offset_bottom = -0.2736206
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_5hkex")
+texture = ExtResource("3_0j71w")
 expand_mode = 1
 
 [node name="ListContainer" type="VBoxContainer" parent="Control/BookBackground"]
@@ -81,7 +100,7 @@ layout_mode = 2
 
 [node name="Icon" type="TextureRect" parent="Control/BookBackground/ListContainer/ListJamu/Jamu1"]
 layout_mode = 2
-texture = ExtResource("3_5hkex")
+texture = ExtResource("4_bp7wq")
 stretch_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/BookBackground/ListContainer/ListJamu/Jamu1"]
@@ -104,7 +123,7 @@ layout_mode = 2
 
 [node name="Icon" type="TextureRect" parent="Control/BookBackground/ListContainer/ListJamu/Jamu2"]
 layout_mode = 2
-texture = ExtResource("3_5hkex")
+texture = ExtResource("4_bp7wq")
 stretch_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/BookBackground/ListContainer/ListJamu/Jamu2"]
@@ -127,7 +146,7 @@ layout_mode = 2
 
 [node name="Icon" type="TextureRect" parent="Control/BookBackground/ListContainer/ListJamu/Jamu3"]
 layout_mode = 2
-texture = ExtResource("3_5hkex")
+texture = ExtResource("4_bp7wq")
 stretch_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/BookBackground/ListContainer/ListJamu/Jamu3"]
@@ -197,7 +216,7 @@ size_flags_horizontal = 4
 
 [node name="TextureRect" type="TextureRect" parent="Control/BookBackground/DetailContainer/Hero"]
 layout_mode = 2
-texture = ExtResource("3_2tper")
+texture = ExtResource("5_x3dl5")
 expand_mode = 2
 
 [node name="Description" type="VBoxContainer" parent="Control/BookBackground/DetailContainer"]
@@ -261,11 +280,11 @@ grow_vertical = 2
 
 [node name="Prev" type="TextureButton" parent="Control/NextContainer"]
 layout_mode = 2
-texture_normal = ExtResource("4_717ya")
+texture_normal = ExtResource("6_846a7")
 flip_h = true
 
 [node name="Next" type="TextureButton" parent="Control/NextContainer"]
 layout_mode = 2
-texture_normal = ExtResource("4_717ya")
+texture_normal = ExtResource("6_846a7")
 
-[connection signal="pressed" from="Control/Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="Control/Back" to="." method="_on_back_pressed"]

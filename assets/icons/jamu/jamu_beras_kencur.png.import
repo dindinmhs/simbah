@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dygtiy28jykmn"
-path="res://.godot/imported/board.png-c828a33c8f2ab3df077b2b47964373f5.ctex"
+uid="uid://c3ovhcqeu1toe"
+path="res://.godot/imported/jamu_beras_kencur.png-d1b80feb69256765ec5c352d351c82e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gameplay/board.png"
-dest_files=["res://.godot/imported/board.png-c828a33c8f2ab3df077b2b47964373f5.ctex"]
+source_file="res://assets/icons/jamu/jamu_beras_kencur.png"
+dest_files=["res://.godot/imported/jamu_beras_kencur.png-d1b80feb69256765ec5c352d351c82e6.ctex"]
 
 [params]
 

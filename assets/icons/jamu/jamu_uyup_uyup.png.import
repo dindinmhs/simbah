@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dygtiy28jykmn"
-path="res://.godot/imported/board.png-c828a33c8f2ab3df077b2b47964373f5.ctex"
+uid="uid://dq4m5lwcicsvo"
+path="res://.godot/imported/jamu_uyup_uyup.png-b01a5440d4f8807bea657a49e37cf736.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gameplay/board.png"
-dest_files=["res://.godot/imported/board.png-c828a33c8f2ab3df077b2b47964373f5.ctex"]
+source_file="res://assets/icons/jamu/jamu_uyup_uyup.png"
+dest_files=["res://.godot/imported/jamu_uyup_uyup.png-b01a5440d4f8807bea657a49e37cf736.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dygtiy28jykmn"
-path="res://.godot/imported/board.png-c828a33c8f2ab3df077b2b47964373f5.ctex"
+uid="uid://d0lo7f6d15vuw"
+path="res://.godot/imported/day.png-aaa689f3a5dc70f091d505a0a1877764.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gameplay/board.png"
-dest_files=["res://.godot/imported/board.png-c828a33c8f2ab3df077b2b47964373f5.ctex"]
+source_file="res://assets/gameplay/day.png"
+dest_files=["res://.godot/imported/day.png-aaa689f3a5dc70f091d505a0a1877764.ctex"]
 
 [params]
 

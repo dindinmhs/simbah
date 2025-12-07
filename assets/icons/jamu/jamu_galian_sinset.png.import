@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dygtiy28jykmn"
-path="res://.godot/imported/board.png-c828a33c8f2ab3df077b2b47964373f5.ctex"
+uid="uid://dfmr11kk5chn0"
+path="res://.godot/imported/jamu_galian_sinset.png-01d6535ed5d315e148808206533a97ac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gameplay/board.png"
-dest_files=["res://.godot/imported/board.png-c828a33c8f2ab3df077b2b47964373f5.ctex"]
+source_file="res://assets/icons/jamu/jamu_galian_sinset.png"
+dest_files=["res://.godot/imported/jamu_galian_sinset.png-01d6535ed5d315e148808206533a97ac.ctex"]
 
 [params]
 

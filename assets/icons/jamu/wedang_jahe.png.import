@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dygtiy28jykmn"
-path="res://.godot/imported/board.png-c828a33c8f2ab3df077b2b47964373f5.ctex"
+uid="uid://bceqgryaiudct"
+path="res://.godot/imported/wedang_jahe.png-6a0ec0e7e49592c9d32e85f86593a755.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gameplay/board.png"
-dest_files=["res://.godot/imported/board.png-c828a33c8f2ab3df077b2b47964373f5.ctex"]
+source_file="res://assets/icons/jamu/wedang_jahe.png"
+dest_files=["res://.godot/imported/wedang_jahe.png-6a0ec0e7e49592c9d32e85f86593a755.ctex"]
 
 [params]
 

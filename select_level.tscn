@@ -1,19 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8iuxxrocxkbr"]
+[gd_scene load_steps=6 format=3 uid="uid://d3q4dwc4maqrx"]
 
-[ext_resource type="Script" uid="uid://elf7amw2w5ly" path="res://gameover.gd" id="1_2nw6q"]
-[ext_resource type="Texture2D" uid="uid://cc0yk5n8vk5t3" path="res://assets/gameplay/bg.png" id="1_kctv7"]
-[ext_resource type="Texture2D" uid="uid://5aoxtb555m06" path="res://assets/gameplay/bg_menu.png" id="2_2nw6q"]
-[ext_resource type="Texture2D" uid="uid://baik57jhn11fq" path="res://assets/gameplay/dadul.png" id="3_w3x71"]
-[ext_resource type="Texture2D" uid="uid://0rmwto28uwvh" path="res://assets/gameplay/nurul.png" id="4_af4fq"]
+[ext_resource type="Texture2D" uid="uid://cc0yk5n8vk5t3" path="res://assets/gameplay/bg.png" id="1_ygfdi"]
+[ext_resource type="Texture2D" uid="uid://5aoxtb555m06" path="res://assets/gameplay/bg_menu.png" id="2_axre5"]
+[ext_resource type="Texture2D" uid="uid://baik57jhn11fq" path="res://assets/gameplay/dadul.png" id="3_xo08m"]
+[ext_resource type="Texture2D" uid="uid://0rmwto28uwvh" path="res://assets/gameplay/nurul.png" id="4_mu1ct"]
+[ext_resource type="Script" uid="uid://dbth2224l3w43" path="res://level_box.gd" id="5_axre5"]
 
-[node name="Gameover" type="Control"]
+[node name="Select_Level" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_2nw6q")
 
 [node name="background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -22,7 +21,7 @@ anchor_right = 1.003
 anchor_bottom = 0.998
 offset_right = 0.5439453
 offset_bottom = 0.29595947
-texture = ExtResource("1_kctv7")
+texture = ExtResource("1_ygfdi")
 expand_mode = 1
 
 [node name="Panel" type="Panel" parent="background"]
@@ -48,7 +47,7 @@ offset_right = -0.056030273
 offset_bottom = -0.16003418
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_2nw6q")
+texture = ExtResource("2_axre5")
 expand_mode = 1
 
 [node name="Dadul" type="TextureRect" parent="BgMenu"]
@@ -62,7 +61,7 @@ offset_left = -0.2299881
 offset_top = -0.19600296
 offset_right = -0.18000793
 offset_bottom = -0.04421997
-texture = ExtResource("3_w3x71")
+texture = ExtResource("3_xo08m")
 expand_mode = 1
 
 [node name="Nurul" type="TextureRect" parent="BgMenu"]
@@ -76,7 +75,7 @@ offset_left = -0.27001953
 offset_top = -0.1400032
 offset_right = 0.22998047
 offset_bottom = -0.040008545
-texture = ExtResource("4_af4fq")
+texture = ExtResource("4_mu1ct")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="BgMenu"]
@@ -94,7 +93,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Si Mbah"
 horizontal_alignment = 1
 
-[node name="Status" type="Label" parent="BgMenu"]
+[node name="Label2" type="Label" parent="BgMenu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.34
@@ -106,10 +105,10 @@ offset_top = 0.01599884
 offset_right = 0.1699524
 offset_bottom = -0.055999756
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Anda Menang"
+text = "Petualangan Sang Herbalis"
 horizontal_alignment = 1
 
-[node name="MenuBox" type="VBoxContainer" parent="BgMenu"]
+[node name="LevelBox" type="VBoxContainer" parent="BgMenu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.27800003
@@ -121,16 +120,26 @@ offset_top = -0.18801117
 offset_right = -0.08001709
 offset_bottom = -0.020019531
 theme_override_constants/separation = 15
+script = ExtResource("5_axre5")
 
-[node name="Start" type="Button" parent="BgMenu/MenuBox"]
+[node name="1" type="Button" parent="BgMenu/LevelBox"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-text = "Ulangi Lagi"
+text = "Level 1"
 
-[node name="Quit" type="Button" parent="BgMenu/MenuBox"]
+[node name="2" type="Button" parent="BgMenu/LevelBox"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-text = "Keluar"
+text = "Level 2"
 
-[connection signal="pressed" from="BgMenu/MenuBox/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="BgMenu/MenuBox/Quit" to="." method="_on_quit_pressed"]
+[node name="3" type="Button" parent="BgMenu/LevelBox"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "Level 3"
+
+[node name="Back" type="Button" parent="BgMenu/LevelBox"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "Kembali"
+
+[connection signal="pressed" from="BgMenu/LevelBox/Back" to="BgMenu/LevelBox" method="_on_back_pressed"]

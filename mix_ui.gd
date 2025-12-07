@@ -1,11 +1,12 @@
 extends Control
 
 @onready var list_container = $"ListContainer"
+@onready var rest_button = $MixBox/ButtonBox/Reset
 @onready var crafting_slots : Array[TextureRect] = [
-	$"CraftSlots/Slot1",
-	$"CraftSlots/Slot2",
-	$"CraftSlots/Slot3",
-	$"CraftSlots/Slot4",
+	$"MixBox/Bahan/CraftSlots/Slot1",
+	$"MixBox/Bahan/CraftSlots/Slot2",
+	$"MixBox/Bahan/CraftSlots/Slot3",
+	$"MixBox/Bahan/CraftSlots/Slot4",
 ]
 
 @onready var main = get_tree().get_root().get_node("Main")
@@ -15,6 +16,7 @@ var ItemButtonScene = preload("res://ItemButton.tscn")
 
 func _ready():
 	build_item_list(GlobalData.player_level)
+	update_reset_button_state()
 
 func build_item_list(level:int):
 	for c in list_container.get_children():
@@ -45,28 +47,38 @@ func build_item_list(level:int):
 
 		list_container.add_child(vbox)
 
+func update_reset_button_state():
+	var any_filled = false
+	for s in selected_items:
+		if s != "":
+			any_filled = true
+			break
+	rest_button.disabled = not any_filled
 
 func _on_item_pressed(item_name:String, icon:Texture2D):
 	for i in range(4):
 		if selected_items[i] == "":
 			selected_items[i] = item_name
 			crafting_slots[i].texture = icon
+			update_reset_button_state()
 			return
 
 func _on_mix_button_pressed() -> void:
 	var result = GlobalData.check_recipe(selected_items)
 
 	if result != null:
-		print("Hasil racikan:", result["name"])
-
-		$"iconJamu".texture = result["icon"]
-		$"namaJamu".text = result["name"]
-
+		$"MixBox/Hero/IconBox/iconJamu".texture = result["icon"]
+		$"MixBox/Hero/namaJamu".text = result["name"]
 		main.add_to_inventory(result)
-
 		selected_items = ["", "", "", ""]
 		for slot in crafting_slots:
 			slot.texture = null
-
+		update_reset_button_state()
 	else:
 		print("Tidak ada resep!")
+
+func _on_reset_pressed() -> void:
+	selected_items = ["", "", "", ""]
+	for slot in crafting_slots:
+		slot.texture = null
+	update_reset_button_state()

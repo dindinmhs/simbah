@@ -11,92 +11,71 @@ var ingredient_by_level : Dictionary = {
 		{"name": "Jeruk Nipis", "icon": preload("res://assets/icons/jeruk.png")},
 		{"name": "Madu", "icon": preload("res://assets/icons/madu.png")},
 		{"name": "Gula", "icon": preload("res://assets/icons/gula.png")},
-		{"name": "Beras", "icon": preload("res://assets/icons/beras.png")},
+		{"name": "Beras", "icon": preload("res://assets/icons/beras.png")}
+	],
+	2: [
+		{"name": "Temulawak", "icon": preload("res://assets/icons/bawang.png")},
+		{"name": "Asam Jawa", "icon": preload("res://assets/icons/biji_adas.png")}
 	]
 }
 
 var recipes = [
 	{
+		"level": 1,
 		"ingredients": ["Jahe", "Serai", "Kayu Manis", "Gula"],
 		"name": "Wedang Jahe",
 		"icon": preload("res://assets/icons/wedang_jahe.png"),
 		"description": "Minuman hangat dari jahe dan rempah-rempah.",
-		"dialog": [
-			"Aromanya hangat...",
-			"Ini wedang jahe!"
-		]
+		"dialog": ["Aromanya hangat...", "Ini wedang jahe!"]
 	},
 	{
+		"level": 1,
 		"ingredients": ["Kunyit", "Gula", "Jeruk Nipis"],
 		"name": "Jamu Kunyit Asam",
 		"icon": preload("res://assets/icons/jamu_kunyit_asam.png"),
 		"description": "Jamu segar dari kunyit dan asam.",
-		"dialog": [
-			"Asam tapi segar!",
-			"Ini jamu kunyit asam."
-		]
+		"dialog": ["Asam tapi segar!", "Ini jamu kunyit asam."]
 	},
 	{
+		"level": 1,
 		"ingredients": ["Beras", "Kencur", "Gula"],
 		"name": "Jamu Beras Kencur",
 		"icon": preload("res://assets/icons/jamu_beras_kencur.png"),
 		"description": "Jamu untuk stamina dan tenaga.",
-		"dialog": [
-			"Rasanya kuat dan segar.",
-			"Ini beras kencur!"
-		]
-	},
-]
-
-var npc_needs = [
-	{
-		"need": "Wedang Jahe",
-		"dialog": [
-			"Aduh... kepala saya pusing.",
-			"Badanku menggigil, butuh yang hangat...",
-			"Tolong... buatkan minuman hangat..."
-		]
+		"dialog": ["Rasanya kuat dan segar.", "Ini beras kencur!"]
 	},
 	{
-		"need": "Jamu Beras Kencur",
-		"dialog": [
-			"Aku lelah sekali...",
-			"Kakiku pegal-pegal, perlu tenaga ekstra...",
-			"Rasanya capek, punya sesuatu untuk stamina?"
-		]
-	},
-	{
-		"need": "Jamu Kunyit Asam",
-		"dialog": [
-			"Aduh... perutku mual...",
-			"Kayaknya aku butuh yang segar...",
-			"Badanku terasa panas dari dalam..."
-		]
+		"level": 2,
+		"ingredients": ["Temulawak", "Asam Jawa", "Gula"],
+		"name": "Jamu Temulawak",
+		"icon": preload("res://assets/icons/jamu_temulawak.png"),
+		"description": "Jamu pahit-manis untuk kesehatan pencernaan.",
+		"dialog": ["Rasa khas temulawak.", "Ini jamu temulawak!"]
 	}
 ]
 
-
+var npc_needs = [
+	{"need": "Wedang Jahe", "dialog": ["Aduh... kepala saya pusing.", "Badanku menggigil..."]},
+	{"need": "Jamu Beras Kencur", "dialog": ["Aku lelah sekali...", "Perlu tenaga ekstra..."]},
+	{"need": "Jamu Kunyit Asam", "dialog": ["Aduh... perutku mual...", "Kayaknya butuh yang segar..."]}
+]
 
 func check_recipe(items:Array):
 	var filtered = items.filter(func(x): return x != "")
 	filtered.sort()
-
 	for recipe in recipes:
 		var k = recipe["ingredients"].duplicate()
 		k.sort()
 		if k == filtered:
-			return recipe   
-
+			return recipe
 	return null
 
 func get_random_npc_request() -> Dictionary:
 	var data = npc_needs[randi() % npc_needs.size()]
 	var picked_dialog = data["dialog"][randi() % data["dialog"].size()]
-
-	return {
-		"need": data["need"],
-		"dialog": picked_dialog
-	}
-
+	return {"need": data["need"], "dialog": picked_dialog}
 
 var player_level : int = 1
+var player_max_unlock_level : int = 2
+
+var is_win = true
