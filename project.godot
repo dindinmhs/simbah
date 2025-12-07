@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="SiMbah"
-run/main_scene="uid://bajusjggv06k3"
+run/main_scene="uid://c0ns32umw1fgb"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GlobalData="*res://GlobalData.gd"
+Ost="*res://ost.tscn"
 
 [input]
 

@@ -122,17 +122,17 @@ offset_bottom = -0.020019531
 theme_override_constants/separation = 15
 script = ExtResource("5_axre5")
 
-[node name="1" type="Button" parent="BgMenu/LevelBox"]
+[node name="one" type="Button" parent="BgMenu/LevelBox"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 text = "Level 1"
 
-[node name="2" type="Button" parent="BgMenu/LevelBox"]
+[node name="two" type="Button" parent="BgMenu/LevelBox"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 text = "Level 2"
 
-[node name="3" type="Button" parent="BgMenu/LevelBox"]
+[node name="three" type="Button" parent="BgMenu/LevelBox"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 text = "Level 3"
@@ -142,4 +142,7 @@ custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 text = "Kembali"
 
+[connection signal="pressed" from="BgMenu/LevelBox/one" to="BgMenu/LevelBox" method="_on_one_pressed"]
+[connection signal="pressed" from="BgMenu/LevelBox/two" to="BgMenu/LevelBox" method="_on_two_pressed"]
+[connection signal="pressed" from="BgMenu/LevelBox/three" to="BgMenu/LevelBox" method="_on_three_pressed"]
 [connection signal="pressed" from="BgMenu/LevelBox/Back" to="BgMenu/LevelBox" method="_on_back_pressed"]

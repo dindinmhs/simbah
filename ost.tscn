@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbbr6ivfqbpu2"]
+
+[ext_resource type="AudioStream" uid="uid://b16anjdpfoush" path="res://assets/sound/ost1.mp3" id="1_8tbpm"]
+
+[node name="Ost" type="AudioStreamPlayer"]
+stream = ExtResource("1_8tbpm")
+volume_db = -20.037
+autoplay = true
+parameters/looping = true

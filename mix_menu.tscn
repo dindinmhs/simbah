@@ -66,7 +66,7 @@ offset_right = 0.3199463
 offset_bottom = 0.3199768
 theme_override_constants/h_separation = 12
 theme_override_constants/v_separation = 11
-columns = 6
+columns = 4
 
 [node name="MixBox" type="VBoxContainer" parent="MixUI"]
 layout_mode = 1
@@ -147,4 +147,5 @@ custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 text = "Racik"
 
+[connection signal="pressed" from="MixUI/MixBox/ButtonBox/Reset" to="MixUI" method="_on_reset_pressed"]
 [connection signal="pressed" from="MixUI/MixBox/ButtonBox/MixButton" to="MixUI" method="_on_mix_button_pressed"]

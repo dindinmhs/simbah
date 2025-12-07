@@ -90,12 +90,12 @@ visible = false
 [node name="GiveArea" parent="." instance=ExtResource("10_4c57u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5387466, 0.010906935, -0.012790799)
 collision_layer = 32
-collision_mask = 3
+collision_mask = 2
 
 [node name="MixTrigger" parent="." instance=ExtResource("1_1bvp3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.94644713, 0.5604949, -2.769397)
 collision_layer = 8
-collision_mask = 3
+collision_mask = 2
 
 [node name="StopArea" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.19982219)
@@ -126,12 +126,12 @@ shape = SubResource("BoxShape3D_kek77")
 [node name="trash" parent="." instance=ExtResource("7_kek77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6892786, 0.6272881, -2.8786783)
 collision_layer = 128
-collision_mask = 3
+collision_mask = 2
 
 [node name="book_trigger" parent="." instance=ExtResource("8_4c57u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9423027, 0.5712178, -2.7348752)
 collision_layer = 64
-collision_mask = 3
+collision_mask = 2
 
 [node name="bookUI" parent="." instance=ExtResource("9_efxa6")]
 visible = false
