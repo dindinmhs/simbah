@@ -99,9 +99,10 @@ func check_end_condition():
 	if coins >= min_gold and GlobalData.player_level < GlobalData.level_config.size():
 		GlobalData.is_win = true
 
-		var next_level = GlobalData.player_level + 1
-		if next_level > GlobalData.player_max_unlock_level:
-			GlobalData.player_max_unlock_level = next_level
+		GlobalData.player_level += 1  
+		if GlobalData.player_level > GlobalData.player_max_unlock_level:
+			GlobalData.player_max_unlock_level = GlobalData.player_level
+
 		get_tree().change_scene_to_file("res://gameover.tscn")
 	else:
 		GlobalData.is_win = false

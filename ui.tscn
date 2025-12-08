@@ -35,13 +35,15 @@ offset_bottom = -0.30300903
 
 [node name="Background" type="TextureRect" parent="Control/Info"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 14.0
-offset_top = -10.0
-offset_right = 6.0
-offset_bottom = 7.0
+anchors_preset = -1
+anchor_left = 0.158
+anchor_top = 0.18100001
+anchor_right = 0.897
+anchor_bottom = 0.82600003
+offset_left = -30.714
+offset_top = -38.96
+offset_right = 35.149002
+offset_bottom = 34.839996
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("CompressedTexture2D_n5ude")
@@ -50,14 +52,14 @@ expand_mode = 1
 [node name="Box" type="VBoxContainer" parent="Control/Info"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.157
-anchor_top = 0.15100001
-anchor_right = 0.89500004
-anchor_bottom = 0.795
-offset_left = 14.569
-offset_top = 12.839998
-offset_right = -105.28502
-offset_bottom = -13.200005
+anchor_left = 0.208
+anchor_top = 0.231
+anchor_right = 0.66400003
+anchor_bottom = 0.712
+offset_left = 0.13599777
+offset_top = 0.040000916
+offset_right = -39.912003
+offset_bottom = 0.08000183
 
 [node name="DayBox" type="HBoxContainer" parent="Control/Info/Box"]
 layout_mode = 2
@@ -141,54 +143,84 @@ autowrap_mode = 3
 [node name="Dialog" type="Control" parent="Control"]
 visible = false
 layout_mode = 1
-anchor_top = 0.633
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -410.81702
-offset_right = -1.0
-offset_bottom = 2.0
+anchor_left = -0.063
+anchor_top = 0.54700005
+anchor_right = 1.072
+anchor_bottom = 1.0350001
+offset_left = 72.576004
+offset_top = -355.00302
+offset_right = -83.94409
+offset_bottom = -20.715027
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="DialogBox" type="TextureRect" parent="Control/Dialog"]
-layout_mode = 0
-offset_left = -75.0
-offset_top = 349.0
-offset_right = 1195.0
-offset_bottom = 666.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.065000005
+anchor_top = 0.536
+anchor_right = 1.0380001
+anchor_bottom = 1.023
+offset_left = -0.18499756
+offset_top = 0.06399536
+offset_right = 0.26184082
+offset_bottom = 0.026977539
+grow_horizontal = 2
+grow_vertical = 2
 texture = SubResource("CompressedTexture2D_y4yjw")
 
 [node name="dialogText" type="Label" parent="Control/Dialog"]
-layout_mode = 0
-offset_left = 272.0
-offset_top = 440.0
-offset_right = 1058.0
-offset_bottom = 574.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.23600002
+anchor_top = 0.67600006
+anchor_right = 0.919
+anchor_bottom = 0.882
+offset_left = 0.36398315
+offset_top = -0.076049805
+offset_right = 0.23095703
+offset_bottom = -0.18200684
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 
 [node name="name" type="Label" parent="Control/Dialog"]
-layout_mode = 0
-offset_left = 508.0
-offset_top = 396.0
-offset_right = 572.0
-offset_bottom = 419.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.441
+anchor_top = 0.60800004
+anchor_right = 0.497
+anchor_bottom = 0.64400005
+offset_left = 0.40899658
+offset_top = 0.19198608
+offset_right = -0.04699707
+offset_bottom = -0.24404907
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Rebecca"
+text = "Doni"
+horizontal_alignment = 1
 
 [node name="acceptButton" type="Button" parent="Control/Dialog"]
-layout_mode = 0
-offset_left = 981.0
-offset_top = 555.0
-offset_right = 1059.0
-offset_bottom = 585.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.85200006
+anchor_top = 0.85300004
+anchor_right = 0.92
+anchor_bottom = 0.90000004
+offset_left = 0.34796143
+offset_top = -0.30303955
+offset_right = 0.079956055
+offset_bottom = -0.9000244
 text = "Terima"
 
 [node name="rejectButton" type="Button" parent="Control/Dialog"]
-layout_mode = 0
-offset_left = 886.0
-offset_top = 556.0
-offset_right = 964.0
-offset_bottom = 587.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.77000004
+anchor_top = 0.85400003
+anchor_right = 0.83800006
+anchor_bottom = 0.90200007
+offset_left = -0.27001953
+offset_top = 0.045959473
+offset_right = -0.53808594
+offset_bottom = -0.20202637
 text = "Tolak"
 
 [node name="Timer" type="HBoxContainer" parent="Control"]

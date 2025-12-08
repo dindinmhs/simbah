@@ -2,22 +2,22 @@ extends Node
 
 var level_config = {
 	1: {
-		"min_gold": 20,
-		"time_limit_minutes": 1,   
-		"spawn_delay": 17,
-		"npc_speed": 2.5,
-		"request_timeout": 30
-	},
-	2: {
-		"min_gold": 40,
+		"min_gold": 30,
 		"time_limit_minutes": 2,   
 		"spawn_delay": 16,
 		"npc_speed": 2.5,
 		"request_timeout": 20
 	},
+	2: {
+		"min_gold": 35,
+		"time_limit_minutes": 2,   
+		"spawn_delay": 15,
+		"npc_speed": 2.5,
+		"request_timeout": 18
+	},
 	3: {
-		"min_gold": 100,
-		"time_limit_minutes": 3,   
+		"min_gold": 40,
+		"time_limit_minutes": 2,   
 		"spawn_delay": 15,
 		"npc_speed": 2.5,
 		"request_timeout": 15
@@ -35,6 +35,7 @@ var ingredient_by_level : Dictionary = {
 		{"name": "Jeruk Nipis", "icon": preload("res://assets/icons/jeruk.png")},
 		{"name": "Madu", "icon": preload("res://assets/icons/madu.png")},
 		{"name": "Gula", "icon": preload("res://assets/icons/gula.png")},
+		{"name": "Kencur", "icon": preload("res://assets/icons/kencur.png")},
 		{"name": "Beras", "icon": preload("res://assets/icons/beras.png")}
 	],
 	2: [
@@ -47,6 +48,7 @@ var ingredient_by_level : Dictionary = {
 		{"name": "Jeruk Nipis", "icon": preload("res://assets/icons/jeruk.png")},
 		{"name": "Madu", "icon": preload("res://assets/icons/madu.png")},
 		{"name": "Gula", "icon": preload("res://assets/icons/gula.png")},
+		{"name": "Kencur", "icon": preload("res://assets/icons/kencur.png")},
 		{"name": "Beras", "icon": preload("res://assets/icons/beras.png")},
 		{"name": "Temulawak", "icon": preload("res://assets/icons/jamu_temulawak.png")},
 		{"name": "Pegagan", "icon": preload("res://assets/icons/pegagan.png")},
@@ -62,6 +64,7 @@ var ingredient_by_level : Dictionary = {
 		{"name": "Jeruk Nipis", "icon": preload("res://assets/icons/jeruk.png")},
 		{"name": "Madu", "icon": preload("res://assets/icons/madu.png")},
 		{"name": "Gula", "icon": preload("res://assets/icons/gula.png")},
+		{"name": "Kencur", "icon": preload("res://assets/icons/kencur.png")},
 		{"name": "Beras", "icon": preload("res://assets/icons/beras.png")},
 		{"name": "Temulawak", "icon": preload("res://assets/icons/temulawak.png")},
 		{"name": "Pegagan", "icon": preload("res://assets/icons/pegagan.png")},
@@ -139,7 +142,7 @@ var recipes = [
 	},
 	{
 		"level": 3,
-		"ingredients": ["Daun Sirih", "Temu Lawak", "Jahe"],
+		"ingredients": ["Daun Sirih", "Temulawak", "Jahe"],
 		"name": "Jamu Uyup-uyup",
 		"icon": preload("res://assets/icons/jamu_uyup_uyup.png"),
 		"description": "Baik untuk pemulihan pasca melahirkan.",
