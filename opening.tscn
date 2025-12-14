@@ -1,0 +1,145 @@
+[gd_scene load_steps=7 format=3 uid="uid://b8ewvam0u4id6"]
+
+[ext_resource type="Texture2D" uid="uid://cc0yk5n8vk5t3" path="res://assets/gameplay/bg.png" id="1_4qvrg"]
+[ext_resource type="Script" uid="uid://d38ni6xo2ua60" path="res://opening.gd" id="1_psf0h"]
+[ext_resource type="Texture2D" uid="uid://dg7uooxoq3ihp" path="res://assets/gameplay/dialog/dadul_kecil_dialog.png" id="2_hsrnu"]
+[ext_resource type="Texture2D" uid="uid://dty6q1rax0ihc" path="res://assets/story/opening/simbah.png" id="3_mha44"]
+[ext_resource type="Texture2D" uid="uid://bmv26g3vdso3p" path="res://assets/story/opening/dadul_kecil.png" id="4_7vh34"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ulneq"]
+load_path = "res://.godot/imported/dialog_box.png-b7e7d1acf8efaac5b042df4c1fe52a61.ctex"
+
+[node name="Opening_1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_psf0h")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_4qvrg")
+expand_mode = 1
+
+[node name="mbah" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.324
+anchor_top = 0.026
+anchor_right = 0.61600006
+anchor_bottom = 0.90700006
+offset_left = -0.24798584
+offset_top = 0.15200043
+offset_right = 0.36791992
+offset_bottom = 0.26397705
+texture = ExtResource("3_mha44")
+expand_mode = 1
+
+[node name="dadul" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.504
+anchor_top = 0.19700001
+anchor_right = 0.748
+anchor_bottom = 0.89500004
+offset_left = 18.391968
+offset_top = 0.002532959
+offset_right = 18.303955
+offset_bottom = 0.039978027
+texture = ExtResource("4_7vh34")
+expand_mode = 1
+
+[node name="Dialog" type="Control" parent="."]
+layout_mode = 1
+anchor_top = -0.001
+anchor_right = 1.0
+anchor_bottom = 1.003
+offset_top = 0.10100293
+offset_right = -1.0
+offset_bottom = 0.020996094
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DialogBox" type="TextureRect" parent="Dialog"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.065000005
+anchor_top = 0.536
+anchor_right = 1.0380001
+anchor_bottom = 1.023
+offset_left = -0.18499756
+offset_top = 0.06399536
+offset_right = 0.26184082
+offset_bottom = 0.026977539
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_ulneq")
+
+[node name="dialogText" type="Label" parent="Dialog"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.23600002
+anchor_top = 0.67600006
+anchor_right = 0.919
+anchor_bottom = 0.882
+offset_left = 0.36398315
+offset_top = -0.076049805
+offset_right = 7.230957
+offset_bottom = -0.18200684
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 19
+text = "Sejak kecil, aku tumbuh di rumah ini… tempat aroma daun kering dan rempah selalu memenuhi udara."
+autowrap_mode = 3
+
+[node name="name" type="Label" parent="Dialog"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.441
+anchor_top = 0.60800004
+anchor_right = 0.497
+anchor_bottom = 0.64400005
+offset_left = 0.40899658
+offset_top = 0.19198608
+offset_right = -0.04699707
+offset_bottom = -0.24404907
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Dadul"
+horizontal_alignment = 1
+
+[node name="Next" type="Button" parent="Dialog"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.85200006
+anchor_top = 0.85300004
+anchor_right = 0.92
+anchor_bottom = 0.90000004
+offset_left = 0.34796143
+offset_top = -0.30303955
+offset_right = 0.079956055
+offset_bottom = -0.9000244
+text = "Lanjut"
+
+[node name="Foto" type="TextureRect" parent="Dialog"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.679
+anchor_right = 0.17600001
+anchor_bottom = 0.906
+offset_left = 0.40999603
+offset_top = -0.15066528
+offset_right = 0.4239807
+offset_bottom = 0.18310547
+texture = ExtResource("2_hsrnu")
+expand_mode = 1
+
+[connection signal="pressed" from="Dialog/Next" to="." method="_on_next_pressed"]

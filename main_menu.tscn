@@ -144,3 +144,4 @@ text = "Keluar"
 
 [connection signal="pressed" from="BgMenu/MenuBox/Start" to="BgMenu/MenuBox" method="_on_start_pressed"]
 [connection signal="pressed" from="BgMenu/MenuBox/Collection" to="BgMenu/MenuBox" method="_on_collection_pressed"]
+[connection signal="pressed" from="BgMenu/MenuBox/Quit" to="BgMenu/MenuBox" method="_on_quit_pressed"]

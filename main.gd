@@ -64,7 +64,6 @@ func _ready():
 
 	timeout_box.visible = false
 
-
 func _process(delta):
 	# Kurangi waktu
 	time_left -= delta
@@ -87,7 +86,6 @@ func _process(delta):
 			timeout_box.visible = false
 			show_timer = false
 
-
 func format_time(seconds: float) -> String:
 	var total_secs = int(seconds)
 	var minutes = total_secs / 60
@@ -102,8 +100,11 @@ func check_end_condition():
 		GlobalData.player_level += 1  
 		if GlobalData.player_level > GlobalData.player_max_unlock_level:
 			GlobalData.player_max_unlock_level = GlobalData.player_level
-
-		get_tree().change_scene_to_file("res://gameover.tscn")
+		if GlobalData.player_level == 3:
+			Ost.stream = load("res://assets/sound/ost2.mp3")
+			get_tree().change_scene_to_file("res://ending.tscn")
+		else:
+			get_tree().change_scene_to_file("res://gameover.tscn")
 	else:
 		GlobalData.is_win = false
 		get_tree().change_scene_to_file("res://gameover.tscn")
@@ -169,7 +170,6 @@ func clear_inventory():
 	result_icon.texture = preload("res://assets/gameplay/racik.png")
 	result_label.text = "Racik Jamu"
 
-
 func stop_request_timer():
 	if request_timer and request_timer.time_left > 0:
 		request_timer.stop()
@@ -186,12 +186,10 @@ func spawn_npc():
 		stop_area.body_entered.connect(func(body): _on_npc_entered_stop_area(body, npc))
 		stop_area.body_exited.connect(npc._on_stop_area_body_exited)
 
-
 func _on_npc_entered_stop_area(body: Node, npc: CharacterBody3D):
 	if body == npc:
 		current_npc = npc
 		npc._on_stop_area_body_entered(body)
-
 
 func _on_spawn_timer_timeout() -> void:
 	spawn_npc()

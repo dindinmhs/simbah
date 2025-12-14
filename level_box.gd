@@ -26,7 +26,9 @@ func _on_back_pressed() -> void:
 
 func _on_one_pressed() -> void:
 	GlobalData.player_level = 1
-	get_tree().change_scene_to_file("res://main.tscn")
+	Ost.stream = load("res://assets/sound/ost2.mp3")
+	Ost.play()
+	get_tree().change_scene_to_file("res://opening.tscn")
 
 
 func _on_two_pressed() -> void:
