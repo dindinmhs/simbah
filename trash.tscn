@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=4 uid="uid://doeydepwafro6"]
+[gd_scene load_steps=7 format=4 uid="uid://doeydepwafro6"]
 
 [ext_resource type="Script" uid="uid://dxddg2cscvpt1" path="res://trash.gd" id="1_avkd5"]
+[ext_resource type="AudioStream" uid="uid://cktgrlgda5nl4" path="res://assets/sound/trash.mp3" id="2_43he1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m0qai"]
 
@@ -68,6 +69,10 @@ skeleton = NodePath("")
 transform = Transform3D(-0.99999994, 0, 0, 0, 1, 0, 0, 0, -0.99999994, 0, 0.76826966, 0)
 visible = false
 text = "[F] untuk buang"
+
+[node name="Trash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_43he1")
+volume_db = -10.496
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

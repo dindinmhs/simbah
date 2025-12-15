@@ -114,8 +114,11 @@ func _on_stop_area_body_entered(body: Node) -> void:
 		
 		var ui_dialog = get_tree().root.get_node("Main/UI/Control/Dialog")
 		var ui_dialogtext = get_tree().root.get_node("Main/UI/Control/Dialog/dialogText")
+		var ui_message = get_tree().root.get_node("Main/UI/Control/Message/Margin/Box/Need")
+		
 		ui_dialog.visible = true
 		ui_dialogtext.text = dialog_text
+		ui_message.text = dialog_text
 		
 		anim.play("npc_cowo_Talking_2")
 		await anim.animation_finished

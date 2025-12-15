@@ -81,7 +81,7 @@ alignment = 1
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.26666668, 0.1764706, 0.105882354, 1)
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 16
 text = "Jamu Beras Kencur"
 vertical_alignment = 1
 autowrap_mode = 3
@@ -104,7 +104,7 @@ alignment = 1
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.26666668, 0.1764706, 0.105882354, 1)
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 16
 text = "Jamu Beras Kencur"
 vertical_alignment = 1
 autowrap_mode = 3
@@ -127,7 +127,7 @@ alignment = 1
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.26666668, 0.1764706, 0.105882354, 1)
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 16
 text = "Jamu Beras Kencur"
 vertical_alignment = 1
 autowrap_mode = 3
@@ -174,6 +174,7 @@ offset_bottom = -9.413696
 custom_minimum_size = Vector2(202, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.2, 0.10980392, 0.050980393, 1)
+theme_override_font_sizes/font_size = 18
 text = "Jamu Beras Kencur"
 horizontal_alignment = 1
 autowrap_mode = 2
@@ -194,14 +195,14 @@ layout_mode = 2
 [node name="Title" type="Label" parent="Control/BookBackground/DetailContainer/Description"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.21960784, 0.12941177, 0.06666667, 1)
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 15
 text = "Deskripsi"
 
 [node name="Text" type="Label" parent="Control/BookBackground/DetailContainer/Description"]
 custom_minimum_size = Vector2(202, 40)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.2, 0.10980392, 0.050980393, 1)
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 14
 autowrap_mode = 3
 justification_flags = 235
 
@@ -211,11 +212,12 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Control/BookBackground/DetailContainer/Bahan"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.21960784, 0.12941177, 0.06666667, 1)
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 15
 text = "Bahan-bahan"
 
 [node name="CraftSlots" type="HBoxContainer" parent="Control/BookBackground/DetailContainer/Bahan"]
 layout_mode = 2
+theme_override_constants/separation = 7
 
 [node name="Slot1" type="TextureRect" parent="Control/BookBackground/DetailContainer/Bahan/CraftSlots"]
 layout_mode = 2

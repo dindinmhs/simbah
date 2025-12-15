@@ -154,7 +154,7 @@ func show_detail(recipe: Dictionary):
 		label.text = ing
 		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		label.add_theme_color_override("font_color", Color.BLACK)
-		label.add_theme_font_size_override("font_size", 11)
+		label.add_theme_font_size_override("font_size", 15)
 
 		vbox.add_child(icon)
 		vbox.add_child(label)

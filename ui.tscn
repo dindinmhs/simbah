@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://yqcpq8elinlw" path="res://assets/gameplay/hourglass.png" id="4_ibotj"]
 [ext_resource type="Texture2D" uid="uid://dn0p5gavyr4gu" path="res://assets/gameplay/racik.png" id="4_n5ude"]
 [ext_resource type="Texture2D" uid="uid://5yjrgnrov84s" path="res://assets/gameplay/dialog/doni_dialog.png" id="5_y4yjw"]
-[ext_resource type="Texture2D" uid="uid://bmnn0ailgasra" path="res://assets/gameplay/close.png" id="8_ok7cu"]
+[ext_resource type="Texture2D" uid="uid://bew8jhgjx6vjm" path="res://assets/gameplay/exit.png" id="8_waa4j"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n5ude"]
 load_path = "res://.godot/imported/board.png-c828a33c8f2ab3df077b2b47964373f5.ctex"
@@ -115,13 +115,13 @@ text = "Gold"
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.90000004
-anchor_top = 0.342
+anchor_top = 0.448
 anchor_right = 0.98700005
-anchor_bottom = 0.5
+anchor_bottom = 0.60700005
 offset_left = 0.19995117
-offset_top = 0.041992188
+offset_top = 0.24798584
 offset_right = -0.024047852
-offset_bottom = 0.5
+offset_bottom = 0.05697632
 alignment = 1
 
 [node name="IconBox" type="HBoxContainer" parent="Control/JamuActive"]
@@ -190,14 +190,14 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 [node name="name" type="Label" parent="Control/Dialog"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.441
-anchor_top = 0.60800004
-anchor_right = 0.497
-anchor_bottom = 0.64400005
-offset_left = 0.40899658
-offset_top = 0.19198608
-offset_right = -0.04699707
-offset_bottom = -0.24404907
+anchor_left = 0.44000003
+anchor_top = 0.61300004
+anchor_right = 0.49600002
+anchor_bottom = 0.648
+offset_left = 0.55996704
+offset_top = -0.0630188
+offset_right = 0.104003906
+offset_bottom = 0.15200806
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Doni"
 horizontal_alignment = 1
@@ -242,28 +242,8 @@ offset_bottom = 0.18310547
 texture = ExtResource("5_y4yjw")
 expand_mode = 1
 
-[node name="Timer" type="HBoxContainer" parent="Control"]
+[node name="Exit" type="TextureButton" parent="Control"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.9110001
-anchor_top = 0.245
-anchor_right = 0.97700006
-anchor_bottom = 0.307
-offset_left = -0.4720459
-offset_top = -0.005004883
-offset_right = -0.5040283
-offset_bottom = -0.24301147
-
-[node name="HourGlass" type="TextureRect" parent="Control/Timer"]
-layout_mode = 2
-texture = ExtResource("4_ibotj")
-expand_mode = 2
-
-[node name="Timeout" type="Label" parent="Control/Timer"]
-layout_mode = 2
-text = "5,63"
-
-[node name="Exit" type="TextureButton" parent="."]
 anchors_preset = -1
 anchor_right = 0.081
 anchor_bottom = 0.13700001
@@ -271,8 +251,48 @@ offset_left = 11.0
 offset_top = 7.0
 offset_right = -0.31199646
 offset_bottom = 0.2239914
-texture_normal = ExtResource("8_ok7cu")
+texture_normal = ExtResource("8_waa4j")
 ignore_texture_size = true
 stretch_mode = 0
 
-[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
+[node name="Message" type="PanelContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.78700006
+anchor_top = 0.23
+anchor_right = 0.98300004
+anchor_bottom = 0.42200002
+offset_left = 0.37591553
+offset_top = -0.27000427
+offset_right = -0.41601563
+offset_bottom = 0.12197876
+
+[node name="Margin" type="MarginContainer" parent="Control/Message"]
+layout_mode = 2
+theme_override_constants/margin_left = 9
+theme_override_constants/margin_top = 9
+theme_override_constants/margin_right = 9
+theme_override_constants/margin_bottom = 9
+
+[node name="Box" type="VBoxContainer" parent="Control/Message/Margin"]
+layout_mode = 2
+
+[node name="Timer" type="HBoxContainer" parent="Control/Message/Margin/Box"]
+layout_mode = 2
+alignment = 2
+
+[node name="HourGlass" type="TextureRect" parent="Control/Message/Margin/Box/Timer"]
+layout_mode = 2
+texture = ExtResource("4_ibotj")
+expand_mode = 2
+
+[node name="Timeout" type="Label" parent="Control/Message/Margin/Box/Timer"]
+layout_mode = 2
+text = "5,63"
+
+[node name="Need" type="Label" parent="Control/Message/Margin/Box"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+autowrap_mode = 3
+
+[connection signal="pressed" from="Control/Exit" to="." method="_on_exit_pressed"]
