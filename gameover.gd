@@ -6,9 +6,11 @@ func _ready() -> void:
 	if GlobalData.is_win :
 		$BgMenu/Status.text = "Anda Menang"
 		$BgMenu/MenuBox/Start.text = "Lanjutkan"
+		$Victory.play()
 	else :
 		$BgMenu/Status.text = "Anda Kalah"
 		$BgMenu/MenuBox/Start.text = "Ulangi"
+		$Defeat.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

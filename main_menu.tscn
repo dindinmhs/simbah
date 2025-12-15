@@ -132,11 +132,6 @@ custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 text = "Koleksi"
 
-[node name="Setting" type="Button" parent="BgMenu/MenuBox"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-text = "Pengaturan"
-
 [node name="Quit" type="Button" parent="BgMenu/MenuBox"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2

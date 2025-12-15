@@ -54,3 +54,5 @@ close={
 3d_physics/layer_7="book_trig"
 3d_physics/layer_8="trash"
 3d_physics/layer_9="destroy"
+3d_physics/layer_10="door_enter"
+3d_physics/layer_11="door_out"

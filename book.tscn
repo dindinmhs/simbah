@@ -323,5 +323,10 @@ transform = Transform3D(100, 0, 0, 0, -1.1920931e-05, 100, 0, -100, -1.1920931e-
 mesh = SubResource("ArrayMesh_f0xhj")
 skeleton = NodePath("")
 
+[node name="HintLabel" type="Label3D" parent="."]
+transform = Transform3D(-0.99999994, 0, -5.9604645e-08, 0, 1, 0, 5.9604645e-08, 0, -0.99999994, 0, 0.76826966, 0)
+visible = false
+text = "[F] untuk buka"
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -32,9 +32,11 @@ func check_give():
 	
 	if jamu_name == npc.need_jamu:
 		print("✔ BENAR! Jamu diberikan:", jamu_name)
+		$correct_sound.play()
 		main.add_coin(10)
 	else:
 		print("❌ SALAH! NPC meminta:", npc.need_jamu, " tapi kamu beri:", jamu_name)
+		$wrong_sound.play()
 		main.remove_coin(5)
 	
 	# NPC keluar dengan belok kanan 2x
@@ -45,7 +47,9 @@ func check_give():
 func _on_body_entered(body):
 	if body.name == "Player": 
 		player_in_area = true
+		$HintLabel.visible = true
 
 func _on_body_exited(body):
 	if body.name == "Player":
 		player_in_area = false
+		$HintLabel.visible = false

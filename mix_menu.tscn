@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpvyd1v5t0kpb"]
+[gd_scene load_steps=5 format=3 uid="uid://cpvyd1v5t0kpb"]
 
 [ext_resource type="Texture2D" uid="uid://d6je7vib0wgq" path="res://assets/store/mixer_background.png" id="1_5syhe"]
 [ext_resource type="Script" uid="uid://b4iaq2v6tep40" path="res://mix_ui.gd" id="1_mk00n"]
 [ext_resource type="Texture2D" uid="uid://dn0p5gavyr4gu" path="res://assets/gameplay/racik.png" id="3_f63aa"]
+[ext_resource type="AudioStream" uid="uid://cpqm4ik34l35h" path="res://assets/sound/mix.wav" id="4_tl8iy"]
 
 [node name="MixMenu" type="CanvasLayer"]
 
@@ -146,6 +147,23 @@ text = "Reset"
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 text = "Racik"
+
+[node name="Label" type="Label" parent="MixUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.017
+anchor_top = 0.020000001
+anchor_right = 0.095000006
+anchor_bottom = 0.056
+offset_left = 0.41599846
+offset_top = 0.03999901
+offset_right = -0.44001007
+offset_bottom = -0.288002
+text = "[esc] keluar"
+
+[node name="MixSuccess" type="AudioStreamPlayer" parent="MixUI"]
+stream = ExtResource("4_tl8iy")
+volume_db = -20.037
 
 [connection signal="pressed" from="MixUI/MixBox/ButtonBox/Reset" to="MixUI" method="_on_reset_pressed"]
 [connection signal="pressed" from="MixUI/MixBox/ButtonBox/MixButton" to="MixUI" method="_on_mix_button_pressed"]

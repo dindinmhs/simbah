@@ -64,5 +64,10 @@ transform = Transform3D(300, 0, 0, 0, 300, -1.3113417e-05, 0, 1.3113417e-05, 300
 mesh = SubResource("ArrayMesh_4dcu4")
 skeleton = NodePath("")
 
+[node name="HintLabel" type="Label3D" parent="."]
+transform = Transform3D(-1.0000001, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, -1.0000001, 0, 0.76826966, 0)
+visible = false
+text = "[F] untuk racik"
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

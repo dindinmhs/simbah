@@ -74,6 +74,7 @@ func _on_mix_button_pressed() -> void:
 		for slot in crafting_slots:
 			slot.texture = null
 		update_reset_button_state()
+		$MixSuccess.play()
 	else:
 		print("Tidak ada resep!")
 

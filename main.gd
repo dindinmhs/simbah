@@ -6,8 +6,9 @@ var request_timer : Timer = null
 var is_request_active : bool = false
 var current_npc : CharacterBody3D = null
 var show_timer := false
-var time_left := 0.0     # Dalam detik (float untuk akurasi)
+var time_left := 0.0
 var min_gold := 0
+var is_paused := false
 
 @onready var gameplay_ui = $"UI/Control"
 @onready var result_icon = $"UI/Control/JamuActive/IconBox/Icon"
@@ -34,9 +35,8 @@ func _ready():
 
 	min_gold = cfg["min_gold"]
 
-	# Config sudah dalam menit, konversi ke detik
 	var minutes = cfg["time_limit_minutes"]
-	time_left = float(minutes * 60)  # Konversi menit ke detik
+	time_left = float(minutes * 60)
 
 	spawn_delay = cfg["spawn_delay"]
 	npc_speed = cfg["npc_speed"]
@@ -57,31 +57,41 @@ func _ready():
 	btn_accept.pressed.connect(accept_request)
 	btn_reject.pressed.connect(reject_request)
 
-	# Timer request NPC
 	request_timer = Timer.new()
 	add_child(request_timer)
 	request_timer.timeout.connect(_on_request_timeout)
 
 	timeout_box.visible = false
 
+func pause_game():
+	is_paused = true
+	$SpawnTimer.paused = true
+	if request_timer:
+		request_timer.paused = true
+
+func resume_game():
+	is_paused = false
+	$SpawnTimer.paused = false
+	if request_timer:
+		request_timer.paused = false
+
 func _process(delta):
-	# Kurangi waktu
+	if is_paused:
+		return
+		
 	time_left -= delta
 	if time_left < 0:
 		time_left = 0
 
-	# Update tampilan timer dengan format MM:SS
 	time_label.text = format_time(time_left)
 
-	# Cek jika waktu habis
 	if time_left <= 0:
 		check_end_condition()
 
-	# Update timer permintaan NPC
 	if show_timer and request_timer:
 		var t = max(0, request_timer.time_left)
 		timeout_label.text = str(int(ceil(t)))
-
+		
 		if t <= 0:
 			timeout_box.visible = false
 			show_timer = false
@@ -92,22 +102,29 @@ func format_time(seconds: float) -> String:
 	var secs = total_secs % 60
 	return "%02d:%02d" % [minutes, secs]
 
-
 func check_end_condition():
-	if coins >= min_gold and GlobalData.player_level < GlobalData.level_config.size():
-		GlobalData.is_win = true
-
-		GlobalData.player_level += 1  
-		if GlobalData.player_level > GlobalData.player_max_unlock_level:
-			GlobalData.player_max_unlock_level = GlobalData.player_level
-		if GlobalData.player_level == 3:
-			Ost.stream = load("res://assets/sound/ost2.mp3")
-			get_tree().change_scene_to_file("res://ending.tscn")
-		else:
-			get_tree().change_scene_to_file("res://gameover.tscn")
-	else:
+	if coins < min_gold:
 		GlobalData.is_win = false
 		get_tree().change_scene_to_file("res://gameover.tscn")
+		return
+
+	GlobalData.is_win = true
+
+	var LAST_LEVEL = 3 
+
+	if GlobalData.player_level == LAST_LEVEL:
+		Ost.stream = load("res://assets/sound/ost2.mp3")
+		Ost.play()
+		get_tree().change_scene_to_file("res://ending.tscn")
+		return
+
+	GlobalData.player_level += 1
+
+	if GlobalData.player_level > GlobalData.player_max_unlock_level:
+		GlobalData.player_max_unlock_level = GlobalData.player_level
+
+	get_tree().change_scene_to_file("res://gameover.tscn")
+
 
 
 func add_to_inventory(recipe:Dictionary):
@@ -115,16 +132,15 @@ func add_to_inventory(recipe:Dictionary):
 	result_icon.texture = recipe["icon"]
 	result_label.text = recipe["name"]
 
-
 func accept_request():
+	$Clock.play()
 	dialog_box.visible = false
 	is_request_active = true
 	show_timer = true
 	timeout_box.visible = true
-
+	
 	timeout_label.text = str(int(request_timeout))
 	request_timer.start(request_timeout)
-
 
 func reject_request():
 	remove_coin(5)
@@ -137,7 +153,6 @@ func reject_request():
 		current_npc.reject_and_leave()
 	current_npc = null
 
-
 func _on_request_timeout():
 	timeout_box.visible = false
 	show_timer = false
@@ -147,11 +162,9 @@ func _on_request_timeout():
 		current_npc.continue_walking()
 	current_npc = null
 
-
 func add_coin(amount: int):
 	coins += amount
 	update_coin_display()
-
 
 func remove_coin(amount: int):
 	coins -= amount
@@ -159,11 +172,9 @@ func remove_coin(amount: int):
 		coins = 0
 	update_coin_display()
 
-
 func update_coin_display():
 	if coin_label:
 		coin_label.text = str(coins)
-
 
 func clear_inventory():
 	inventory = []
@@ -174,7 +185,6 @@ func stop_request_timer():
 	if request_timer and request_timer.time_left > 0:
 		request_timer.stop()
 		is_request_active = false
-
 
 func spawn_npc():
 	var npc = npc_cowo.instantiate()

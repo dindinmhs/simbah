@@ -159,6 +159,3 @@ func show_detail(recipe: Dictionary):
 		vbox.add_child(icon)
 		vbox.add_child(label)
 		bahan_list.add_child(vbox)
-
-func _on_close_pressed() -> void:
-	print("tes")

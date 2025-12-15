@@ -4,21 +4,21 @@ var level_config = {
 	1: {
 		"min_gold": 30,
 		"time_limit_minutes": 2,   
-		"spawn_delay": 16,
+		"spawn_delay": 14,
 		"npc_speed": 2.5,
 		"request_timeout": 20
 	},
 	2: {
 		"min_gold": 35,
 		"time_limit_minutes": 2,   
-		"spawn_delay": 15,
+		"spawn_delay": 13,
 		"npc_speed": 2.5,
 		"request_timeout": 18
 	},
 	3: {
 		"min_gold": 40,
 		"time_limit_minutes": 2,   
-		"spawn_delay": 15,
+		"spawn_delay": 12,
 		"npc_speed": 2.5,
 		"request_timeout": 15
 	},
@@ -178,7 +178,7 @@ var npc_needs_by_level := {
 		},
 		{
 			"need": "Jamu Brotowali",
-			"dialog": "Badanku mudah sakit, perlu jamu pahitan."
+			"dialog": "Badanku mudah sakit, perlu jamu yang meningkatkan daya tahan tubuh."
 		}
 	],
 
@@ -213,7 +213,7 @@ func get_random_npc_request() -> Dictionary:
 	var allowed := []
 
 	for lvl in npc_needs_by_level.keys():
-		if lvl <= player_max_unlock_level:
+		if lvl <= player_level:
 			allowed += npc_needs_by_level[lvl]
 
 	if allowed.is_empty():

@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bpejoof47thdc"]
+[gd_scene load_steps=5 format=3 uid="uid://bpejoof47thdc"]
 
 [ext_resource type="Script" uid="uid://b4e7l5vcpwotq" path="res://give_area.gd" id="1_e8bd4"]
+[ext_resource type="AudioStream" uid="uid://q0vb2bl7sl48" path="res://assets/sound/true.mp3" id="2_dmhar"]
+[ext_resource type="AudioStream" uid="uid://dsut1r65s6ehr" path="res://assets/sound/wrong.mp3" id="3_4diul"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bwk37"]
 
@@ -10,3 +12,16 @@ script = ExtResource("1_e8bd4")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6525692, 0)
 shape = SubResource("BoxShape3D_bwk37")
+
+[node name="HintLabel" type="Label3D" parent="."]
+transform = Transform3D(-0.9993981, 0, 0.034690052, 0, 1, 0, -0.034690052, 0, -0.9993981, 0, 1.5244429, 0.90627503)
+visible = false
+text = "[F] untuk memberi"
+
+[node name="correct_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_dmhar")
+volume_db = -27.67
+
+[node name="wrong_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_4diul")
+volume_db = -7.632

@@ -1,15 +1,11 @@
 extends Area3D
 
-var player_in_area = false
+var player_in_area := false
 
 @onready var main = get_tree().get_root().get_node("Main")
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+@onready var hint_label : Label3D = $HintLabel
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if player_in_area and Input.is_action_just_pressed("interact"):
 		main.clear_inventory()
@@ -17,7 +13,9 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	player_in_area = true
+	hint_label.visible = true
 
 
 func _on_body_exited(body: Node3D) -> void:
-	player_in_area = true
+	player_in_area = false   
+	hint_label.visible = false

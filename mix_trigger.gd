@@ -32,7 +32,9 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	player_in_area = true
+	$HintLabel.visible = true
 
 
 func _on_body_exited(body: Node3D) -> void:
 	player_in_area = false
+	$HintLabel.visible = false
